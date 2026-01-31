@@ -12,9 +12,7 @@ function Book(title, author, numPages, hasRead, id){
     this.id = id;
 
     this.flipReadStatus = function(){
-        console.log(title + " before " + this.hasRead);
         this.hasRead = !this.hasRead;
-        console.log(title + " after " + this.hasRead);
     }
 }
 
@@ -56,7 +54,22 @@ function addBookToDOM(container, index){
     hasReadBox.setAttribute("class", "has-read-box");
     hasReadBox.setAttribute("type", "checkbox");
     hasReadBox.checked = currentBook.hasRead;
-    hasReadBox.addEventListener("click", () => currentBook.flipReadStatus());
+
+    if(currentBook.hasRead){
+        book.style.backgroundColor = "#070053";
+    }else{
+        book.style.backgroundColor = "#003290";
+    }
+
+    hasReadBox.addEventListener("click", () => {
+        if(!currentBook.hasRead){
+            book.style.backgroundColor = "#070053";
+        }else{
+            book.style.backgroundColor = "#003290";
+        }
+        currentBook.flipReadStatus();
+    });
+
     container.appendChild(book);
     document.getElementById(uuid).appendChild(titleText);
     document.getElementById(uuid).appendChild(authorText);
