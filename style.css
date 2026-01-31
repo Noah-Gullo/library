@@ -38,23 +38,35 @@ body{
 
     height: 550px;
     width: 1400px;
-    background-color: #ffc2cc;
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, fr);
-    gap: 10px;
+    grid-template-rows: repeat(4, 225px);
 }
 
 #card-container .book {
-    height: 150px;
+    height: 200px;
     width: 200px;
     border-radius: 20px;
     background-color: rgb(7, 0, 83);
+    color: #ffffff;
+}
+
+#card-container .book > *{
+    margin-left: 10px;
+    margin-top: 14px;
 }
 
 #card-container .book .title-text{
-    color: #ffffff;
-    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
+#card-container .book .author-text{
+    font-size: 16px;
+}
+
+#card-container .book .page-count-text{
+    font-size: 14px;
+    margin-top: 4px;
 }

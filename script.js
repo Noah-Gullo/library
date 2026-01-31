@@ -10,26 +10,6 @@ function Book(title, author, numPages, beenRead, id){
     this.numPages = numPages;
     this.beenRead = beenRead;
     this.id = id;
-
-    this.getTitle = function(){
-        return this.title;
-    }
-
-    this.getAuthor = function(){
-        return this.author;
-    }
-
-    this.getNumPages = function(){
-        return this.numPages;
-    }
-
-    this.getBeenRead = function(){
-        return this.beenRead;
-    }
-
-    this.getId = function(){
-        return this.id;
-    }
 }
 
 
@@ -37,6 +17,32 @@ function addBookToLibrary(title, author, numpages, beenRead){
     const newBook = new Book(title, author, numpages, beenRead, crypto.randomUUID());
     myLibrary.push(newBook);
     displayBooks();
+}
+
+function addBookToDOM(container, index){
+    const currentBook = myLibrary[index];
+        const uuid = currentBook.id;
+
+        const book = document.createElement("div");
+        book.setAttribute("id", uuid);
+        book.setAttribute("class", "book");
+
+        const titleText = document.createElement("p");
+        titleText.setAttribute("class", "title-text");
+        titleText.textContent = currentBook.title;
+
+        const authorText = document.createElement("p");
+        authorText.setAttribute("class", "author-text");
+        authorText.textContent = "By: " + currentBook.author;
+        
+        const pageCountText = document.createElement("p");
+        pageCountText.setAttribute("class", "page-count-text");
+        pageCountText.textContent = "Page Count: " + currentBook.numPages;
+
+        container.appendChild(book);
+        document.getElementById(uuid).appendChild(titleText);
+        document.getElementById(uuid).appendChild(authorText);
+        document.getElementById(uuid).appendChild(pageCountText);
 }
 
 function displayBooks(){
@@ -48,22 +54,10 @@ function displayBooks(){
     }
 
     for(let i = 0; i < myLibrary.length; i++){
-        const currentBook = myLibrary[i];
-        const uuid = currentBook.getId();
-
-        const book = document.createElement("div");
-        book.setAttribute("id", uuid);
-        book.setAttribute("class", "book");
-
-        const titleText = document.createElement("p");
-        titleText.setAttribute("class", "title-text");
-        titleText.textContent = currentBook.getAuthor();
-
-        card_container.appendChild(book);
-        document.getElementById(uuid).appendChild(titleText);
+        addBookToDOM(card_container, i);
     }
 }
 
 for(let i = 0; i < 10; i++){
-    const book = addBookToLibrary("title", i, 100, true, crypto.randomUUID)
+    const book = addBookToLibrary("How to Kill a Mockinbird", "Jane Doe", (Math.ceil(Math.random() * 100)), false, crypto.randomUUID)
 }
