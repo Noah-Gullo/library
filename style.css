@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #e9e9e9;
+}
+
+#button-container{
+    display: flex;
+    justify-content: center;
+}
+
+#new-book-button{
+    padding: 15px;
+    margin: 30px;
+    border-radius: 10px;
+    border: none;   
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#new-book-button:hover{
+    background-color: #515151;
+}
+
+#new-book-button:active{
+    background-color: #393939;
+}
