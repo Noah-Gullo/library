@@ -62,19 +62,19 @@ body{
 }
 
 #card-container .book .title-text{
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 14px;
 }
 
 #card-container .book .author-text{
-    font-size: 22px;
+    font-size: 18px;
     margin-top: 10px;
 }
 
 #card-container .book .page-count-text, 
 #card-container .book .checked-container .has-read-text{
-    font-size: 18px;    
+    font-size: 14px;    
     margin-top: 4px;
 }
 

@@ -92,10 +92,24 @@ function displayBooks(){
     }
 }
 
-for(let i = 0; i < 10; i++){
-    let read = false;
-    if(Math.random() > 0.5){
-        read = true;
+function addBook(){
+    const title = document.getElementById("title-field").value;
+    const author = document.getElementById("author-field").value;
+    const pageNum = document.getElementById("page-field").value;
+    const hasRead = document.getElementById("has-read").checked
+
+    if(title == "" || author == "" || pageNum == ""){
+        return;
     }
-    const book = addBookToLibrary(i, "Jane Doe", (Math.ceil(Math.random() * 100)), read, crypto.randomUUID)
+
+    addBookToLibrary(title, author, pageNum, hasRead);
 }
+
+const addButton = document.querySelector("#new-book-button");
+addButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    document.querySelector("dialog").showModal();
+});
+
+const submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", () => addBook());
