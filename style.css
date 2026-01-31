@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
 }
@@ -29,4 +30,31 @@ body{
 
 #new-book-button:active{
     background-color: #393939;
+}
+
+#card-container{
+    display: flex;
+    justify-self: center;
+
+    height: 550px;
+    width: 1400px;
+    background-color: #ffc2cc;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, fr);
+    gap: 10px;
+}
+
+#card-container .book {
+    height: 150px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: rgb(7, 0, 83);
+}
+
+#card-container .book .title-text{
+    color: #ffffff;
+    margin: 10px;
+
 }
