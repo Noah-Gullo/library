@@ -45,7 +45,7 @@ body{
 }
 
 #card-container .book {
-    height: 200px;
+    height: 175px;
     width: 200px;
     border-radius: 20px;
     background-color: rgb(7, 0, 83);
@@ -53,7 +53,7 @@ body{
 }
 
 #card-container .book:hover{
-    height: 205px;
+    height: 180px;
     width: 205px;
 }
 
@@ -81,4 +81,32 @@ body{
 #card-container .book #checked-container{
     display: flex;
     gap: 5px;
+}
+
+#card-container .book button{
+    margin-top: 10px;
+    padding: 4px;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 16px;
+    border: none;
+}
+
+#card-container .book .delete-button{
+    background-color: #ff0000;
+}
+
+#card-container .book .edit-button{
+    background-color: #0095ff;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#popup-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#popup{
+    
 }

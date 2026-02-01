@@ -12,36 +12,38 @@
         <div id="button-container">
             <button id="new-book-button">New Book (+)</button>
         </div>
-        
-        <dialog>
-            <form method="dialog">
-                <table>
-                    <tr>
-                        <input id="title-field" type="text" placeholder="Book Title" required></input>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="author-field" type="text" placeholder="Author Name" required></input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="page-field" type="number" placeholder="Number of Pages" required></input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="has-read" type="checkbox">Have you read it?</input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button id="submit-button" type="submit">Save</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </dialog>
+
+        <div id="popup-container">
+            <dialog>
+                <form method="dialog" id = "popup">
+                    <table>
+                        <tr>
+                            <input id="title-field" type="text" placeholder="Book Title"></input>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="author-field" type="text" placeholder="Author Name"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="page-field" type="number" placeholder="Number of Pages"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="has-read" type="checkbox">Have you read it?</input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="submit-button" type="submit">Save</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </dialog>
+        </div>
 
         <div id="card-container"></div>
     </body>

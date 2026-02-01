@@ -11,11 +11,24 @@ function Book(title, author, numPages, hasRead, id){
     this.hasRead = hasRead;
     this.id = id;
 
+    this.getId = function(){
+        return this.id;
+    }
+
     this.flipReadStatus = function(){
         this.hasRead = !this.hasRead;
     }
 }
 
+function deleteBook(uuid){
+    for(let i = 0; i < myLibrary.length; i++){
+        if(myLibrary[i].getId() === uuid){
+            myLibrary.splice(i, 1);
+            break;
+        }
+    }
+    displayBooks();
+}
 
 function addBookToLibrary(title, author, numpages, beenRead){
     const newBook = new Book(title, author, numpages, beenRead, crypto.randomUUID());
@@ -70,6 +83,15 @@ function addBookToDOM(container, index){
         currentBook.flipReadStatus();
     });
 
+    const editButton = document.createElement("button");
+    editButton.setAttribute("class", "edit-button");
+    editButton.textContent = "Edit";
+
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "delete-button");
+    deleteButton.textContent = "Delete";    
+    deleteButton.addEventListener("click", () => deleteBook(uuid));
+
     container.appendChild(book);
     document.getElementById(uuid).appendChild(titleText);
     document.getElementById(uuid).appendChild(authorText);
@@ -77,9 +99,12 @@ function addBookToDOM(container, index){
     document.getElementById(uuid).appendChild(checkedContainer);
     checkedContainer.appendChild(hasReadText);
     checkedContainer.appendChild(hasReadBox);
+    document.getElementById(uuid).appendChild(editButton);
+    document.getElementById(uuid).appendChild(deleteButton);
 }
 
 function displayBooks(){
+    console.log(myLibrary)
     const card_container = document.getElementById("card-container");
     if(card_container.childElementCount > 0){
         while(card_container.firstChild){
@@ -96,11 +121,7 @@ function addBook(){
     const title = document.getElementById("title-field").value;
     const author = document.getElementById("author-field").value;
     const pageNum = document.getElementById("page-field").value;
-    const hasRead = document.getElementById("has-read").checked
-
-    if(title == "" || author == "" || pageNum == ""){
-        return;
-    }
+    const hasRead = document.getElementById("has-read").checked;
 
     addBookToLibrary(title, author, pageNum, hasRead);
 }
@@ -113,3 +134,6 @@ addButton.addEventListener("click", (event) => {
 
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", () => addBook());
+
+addBookToLibrary("title", "author", 1234, true);
+addBookToLibrary("title", "author", 1234, false);
