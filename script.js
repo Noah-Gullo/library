@@ -30,6 +30,33 @@ function deleteBook(uuid){
     displayBooks();
 }
 
+function deleteAllBooks(){
+    myLibrary.length = 0;
+    displayBooks();
+}
+
+
+function addBook(){
+    let title = document.getElementById("title-field").value;
+    let author = document.getElementById("author-field").value;
+    let pageNum = document.getElementById("page-field").value;
+    let hasRead = document.getElementById("has-read").checked;
+
+    if(title == ""){
+        title = "Title";
+    }
+
+    if(author == ""){
+        author = "First Last";
+    }
+
+    if(pageNum == ""){
+        pageNum = "0";
+    }
+
+    addBookToLibrary(title, author, pageNum, hasRead);
+}
+
 function addBookToLibrary(title, author, numpages, beenRead){
     const newBook = new Book(title, author, numpages, beenRead, crypto.randomUUID());
     myLibrary.push(newBook);
@@ -83,28 +110,22 @@ function addBookToDOM(container, index){
         currentBook.flipReadStatus();
     });
 
-    const editButton = document.createElement("button");
-    editButton.setAttribute("class", "edit-button");
-    editButton.textContent = "Edit";
-
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("class", "delete-button");
     deleteButton.textContent = "Delete";    
     deleteButton.addEventListener("click", () => deleteBook(uuid));
 
     container.appendChild(book);
-    document.getElementById(uuid).appendChild(titleText);
-    document.getElementById(uuid).appendChild(authorText);
-    document.getElementById(uuid).appendChild(pageCountText);
-    document.getElementById(uuid).appendChild(checkedContainer);
+    book.appendChild(titleText);
+    book.appendChild(authorText);
+    book.appendChild(pageCountText);
+    book.appendChild(checkedContainer);
     checkedContainer.appendChild(hasReadText);
     checkedContainer.appendChild(hasReadBox);
-    document.getElementById(uuid).appendChild(editButton);
-    document.getElementById(uuid).appendChild(deleteButton);
+    book.appendChild(deleteButton);
 }
 
 function displayBooks(){
-    console.log(myLibrary)
     const card_container = document.getElementById("card-container");
     if(card_container.childElementCount > 0){
         while(card_container.firstChild){
@@ -117,24 +138,14 @@ function displayBooks(){
     }
 }
 
-function addBook(){
-    const title = document.getElementById("title-field").value;
-    const author = document.getElementById("author-field").value;
-    const pageNum = document.getElementById("page-field").value;
-    const hasRead = document.getElementById("has-read").checked;
-
-    addBookToLibrary(title, author, pageNum, hasRead);
-}
-
-const addButton = document.querySelector("#new-book-button");
+const addButton = document.getElementById("new-book-button");
 addButton.addEventListener("click", (event) => {
     event.preventDefault();
     document.querySelector("dialog").showModal();
 });
 
+const deleteAllButton = document.getElementById("delete-all-button");
+deleteAllButton.addEventListener("click", () => deleteAllBooks());
+
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", () => addBook());
-
-for(let i = 0; i < 42; i++){
-    addBookToLibrary("title", "author", 100, true);
-}

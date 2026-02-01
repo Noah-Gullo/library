@@ -9,41 +9,48 @@
     </head>
 
     <body>
-        <div id="button-container">
+        <h1 id="title">Library</h1>
+        <div id="new-button-container">
             <button id="new-book-button">New Book (+)</button>
         </div>
 
-        <div id="popup-container">
-            <dialog>
-                <form method="dialog" id = "popup">
-                    <table>
-                        <tr>
-                            <input id="title-field" type="text" placeholder="Book Title"></input>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input id="author-field" type="text" placeholder="Author Name"></input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input id="page-field" type="number" placeholder="Number of Pages"></input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input id="has-read" type="checkbox">Have you read it?</input>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button id="submit-button" type="submit">Save</button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </dialog>
+        <div id="delete-btn-container">
+            <button id="delete-all-button">Delete All (-)</button>
         </div>
+
+        <dialog closedby="any">
+            <form method="dialog" id = "popup">
+                <table>
+                    <tr>
+                        <td>
+                            <input id="title-field" type="text" placeholder="Book Title" autofoc></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="author-field" type="text" placeholder="Author Name"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="page-field" type="number" placeholder="Number of Pages"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="has-read" type="checkbox"></input>
+                            <label>Have you read it?</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="submit-button" type="submit">Save</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </dialog>
+    
 
         <div id="card-container"></div>
     </body>
