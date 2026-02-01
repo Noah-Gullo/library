@@ -135,5 +135,6 @@ addButton.addEventListener("click", (event) => {
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", () => addBook());
 
-addBookToLibrary("title", "author", 1234, true);
-addBookToLibrary("title", "author", 1234, false);
+for(let i = 0; i < 42; i++){
+    addBookToLibrary("title", "author", 100, true);
+}

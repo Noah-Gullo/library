@@ -41,7 +41,7 @@ body{
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 225px);
+    grid-auto-rows: 225px;
 }
 
 #card-container .book {
@@ -102,11 +102,6 @@ body{
     padding-left: 10px;
 }
 
-#popup-container{
-    display: flex;
-    justify-content: flex-end;
-}
-
 #popup{
-    
+   
 }
