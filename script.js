@@ -1,28 +1,42 @@
 const myLibrary = [];
 
-function Book(title, author, numPages, hasRead, id){
-    if(!new.target){
-        throw Error("You need to use 'new' to call this constructor");
-    }
-    
-    this.title = title;
-    this.author = author;
-    this.numPages = numPages;
-    this.hasRead = hasRead;
-    this.id = id;
-
-    this.getId = function(){
-        return this.id;
+class Book{
+    constructor(title, author, numPages, hasRead, id){
+        this._title = title;
+        this._author = author;
+        this._numPages = numPages;
+        this._hasRead = hasRead;
+        this._id = id;
     }
 
-    this.flipReadStatus = function(){
-        this.hasRead = !this.hasRead;
+    get title(){
+        return this._title;
+    }
+
+    get author(){
+        return this._author;
+    }
+
+    get numPages(){
+        return this._numPages;
+    }
+
+    get hasRead(){
+        return this._hasRead;
+    }
+
+    get id(){
+        return this._id;
+    }
+
+    flipReadStatus = function(){
+        this._hasRead = !this._hasRead;
     }
 }
 
 function deleteBook(uuid){
     for(let i = 0; i < myLibrary.length; i++){
-        if(myLibrary[i].getId() === uuid){
+        if(myLibrary[i].id === uuid){
             myLibrary.splice(i, 1);
             break;
         }
