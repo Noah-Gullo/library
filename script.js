@@ -162,4 +162,23 @@ const deleteAllButton = document.getElementById("delete-all-button");
 deleteAllButton.addEventListener("click", () => deleteAllBooks());
 
 const submitButton = document.getElementById("submit-button");
-submitButton.addEventListener("click", () => addBook());
+submitButton.addEventListener("click", (event) => {
+    if(submitButton.checkValidity()){
+        addBook();
+    }
+});
+
+const titleField = document.getElementById("title-field");
+titleField.addEventListener("invalid", (event) => {
+    titleField.setCustomValidity("Title field missing. Please input a book title.");
+});
+
+const authorField = document.getElementById("author-field");
+authorField.addEventListener("invalid", (event) => {
+    authorField.setCustomValidity("Author field missing. Please input an author.");
+});
+
+const pageField = document.getElementById("page-field");
+pageField.addEventListener("invalid", (event) => {
+    pageField.setCustomValidity("Page number field missing. Please input a the number of pages.");
+});
