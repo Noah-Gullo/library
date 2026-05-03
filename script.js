@@ -163,22 +163,32 @@ deleteAllButton.addEventListener("click", () => deleteAllBooks());
 
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", (event) => {
-    if(submitButton.checkValidity()){
+    if(form.checkValidity()){
         addBook();
     }
 });
 
+
+
 const titleField = document.getElementById("title-field");
-titleField.addEventListener("invalid", (event) => {
-    titleField.setCustomValidity("Title field missing. Please input a book title.");
+titleField.addEventListener("input", (event) => {
+    if(!titleField.validity.valid){
+        formError(titleField);
+    }
 });
 
 const authorField = document.getElementById("author-field");
-authorField.addEventListener("invalid", (event) => {
-    authorField.setCustomValidity("Author field missing. Please input an author.");
+authorField.addEventListener("input", (event) => {
+    if(!authorField.validity.valid){
+        formError(authorField);
+    }
 });
 
-const pageField = document.getElementById("page-field");
-pageField.addEventListener("invalid", (event) => {
-    pageField.setCustomValidity("Page number field missing. Please input a the number of pages.");
-});
+function formError(input){
+    name = input.placeholder;
+    if(input.validity.valueMissing){
+        error.textContent = `You are missing a  ${name}.`;
+    }else if (input.validity.tooShort){
+        error.textContent = `The ${name} is too short. It should be at least ${input.minLength} chars`;
+    }
+}

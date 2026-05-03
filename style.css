@@ -161,3 +161,14 @@ dialog button{
     font-weight: bold;
     background-color: #008000;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#error{
+    color: red;
+    overflow-wrap: wrap;
+}

@@ -19,35 +19,16 @@
         </div>
 
         <dialog closedby="any">
-            <form method="dialog" id = "popup">
-                <table>
-                    <tr>
-                        <td>
-                            <input id="title-field" type="text" placeholder="Book Title" required autofoc></input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="author-field" type="text" placeholder="Author Name" required></input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="page-field" type="number" placeholder="Number of Pages" required></input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input id="has-read" type="checkbox"></input>
-                            <label>Have you read it?</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button id="submit-button" type="submit">Save</button>
-                        </td>
-                    </tr>
-                </table>
+            <form method="dialog" id="popup">
+                    <input id="title-field" type="text" minlength="5" placeholder="Book Title" required autofoc></input>
+                    <input id="author-field" type="text" minlength="5" placeholder="Author Name" required></input>
+                    <input id="page-field" type="number" placeholder="Number of Pages" required></input>
+                    <div id="read-container">
+                        <label>Have you read it?</label>
+                        <input id="has-read" type="checkbox"></input>
+                    </div>
+                    <button id="submit-button" type="submit">Save</button>
+                    <p id="error"></p>
             </form>
         </dialog>
     
